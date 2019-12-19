@@ -5,6 +5,7 @@ var body = $(document.body);
 var button = $("button");
 var div = $("#div");
 var wrapper = $("#table-wrapper");
+var sizeStandard = "width=\"100\" height=\"100\"";
 
 function setStyle() {
     body.css("color", "white");
@@ -29,10 +30,10 @@ form.submit(function (event) {
         })
         .then(function (elems) {
             if (elems.items.length > 0) {
-                table.html("<tr><th>#</th><th>Name</th><th>Score</th><th>URL</th>");
+                table.html("<tr><th>#</th><th>Name</th><th>Score</th><th>URL</th><th>Profile picture</th></tr>");
                 var i = 1;
                 elems.items.forEach(function (elem) {
-                    table.append("<tr><td>" + i + "</td><td>" + elem.login + "</td><td>" + elem.score + "</td><td><a href=" + elem.html_url + " target=\"_blank\">Github</a></td></tr>")
+                    table.append("<tr><td>" + i + "</td><td>" + elem.login + "</td><td>" + elem.score + "</td><td><a href=" + elem.html_url + " target=\"_blank\">Github</a></td><td><img src=\"" + elem.avatar_url + "\"" + sizeStandard + "/></tr>")
                     i++;
                 })
             } else {
