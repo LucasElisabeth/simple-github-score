@@ -29,10 +29,10 @@ form.submit(function (event) {
         })
         .then(function (elems) {
             if (elems.items.length > 0) {
-                table.html("<tr><th>#</th><th>Name</th><th>Score</th></br>");
+                table.html("<tr><th>#</th><th>Name</th><th>Score</th><th>URL</th>");
                 var i = 1;
                 elems.items.forEach(function (elem) {
-                    table.append("<tr><td>" + i + "</td><td>" + elem.login + "</td><td>" + elem.score + "</td></tr>")
+                    table.append("<tr><td>" + i + "</td><td>" + elem.login + "</td><td>" + elem.score + "</td><td><a href=" + elem.html_url + " target=\"_blank\">Github</a></td></tr>")
                     i++;
                 })
             } else {
